@@ -12,7 +12,7 @@ import java.util.UUID;
 @Component
 public class BeerInventoryBootstrap implements CommandLineRunner {
 
-    private BeerInventoryRepository beerInventoryRepository;
+    private final BeerInventoryRepository beerInventoryRepository;
 
     @Override
     public void run(String... args) throws Exception {
