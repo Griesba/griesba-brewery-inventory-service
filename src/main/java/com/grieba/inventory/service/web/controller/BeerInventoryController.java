@@ -19,8 +19,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/beer")
 public class BeerInventoryController {
-    private BeerInventoryMapper beerInventoryMapper;
-    private BeerInventoryRepository beerInventoryRepository;
+    private final BeerInventoryMapper beerInventoryMapper;
+    private final BeerInventoryRepository beerInventoryRepository;
 
     @GetMapping("/{beerId}/inventory")
     public List<BeerInventoryDto> listBeerById(@PathVariable("beerId")UUID beerId) {
