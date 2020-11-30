@@ -3,11 +3,13 @@ package com.grieba.inventory.service.bootstrap;
 import com.grieba.inventory.service.domain.BeerInventory;
 import com.grieba.inventory.service.repository.BeerInventoryRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
+@Slf4j
 @RequiredArgsConstructor
 @Component
 public class BeerInventoryBootstrap implements CommandLineRunner {
@@ -18,6 +20,9 @@ public class BeerInventoryBootstrap implements CommandLineRunner {
     public void run(String... args) throws Exception {
         if (beerInventoryRepository.count() == 0) {
             loadInitialDate();
+        } else {
+            log.info("count: {}", beerInventoryRepository.count());
+            log.info("beerId {}", beerInventoryRepository.findAll().get(0).getBeerId());
         }
     }
 
