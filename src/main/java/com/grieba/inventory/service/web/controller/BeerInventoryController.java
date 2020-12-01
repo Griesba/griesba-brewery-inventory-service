@@ -24,7 +24,7 @@ public class BeerInventoryController {
 
     @GetMapping("/{beerId}/inventory")
     public List<BeerInventoryDto> listBeerById(@PathVariable("beerId")UUID beerId) {
-        log.debug("Finding inventory for beerId " + beerId);
+        log.info("Finding inventory for beerId {}", beerId);
         return beerInventoryRepository.findAllByBeerId(beerId)
                 .stream()
                 .map(beerInventoryMapper::beerInventoryToBeerInventoryDto)
