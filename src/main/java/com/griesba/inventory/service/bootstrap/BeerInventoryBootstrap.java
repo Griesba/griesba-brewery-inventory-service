@@ -1,7 +1,7 @@
-package com.grieba.inventory.service.bootstrap;
+package com.griesba.inventory.service.bootstrap;
 
-import com.grieba.inventory.service.domain.BeerInventory;
-import com.grieba.inventory.service.repository.BeerInventoryRepository;
+import com.griesba.inventory.service.domain.BeerInventory;
+import com.griesba.inventory.service.repository.BeerInventoryRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;

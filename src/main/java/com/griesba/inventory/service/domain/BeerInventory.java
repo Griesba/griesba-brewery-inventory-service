@@ -1,4 +1,4 @@
-package com.grieba.inventory.service.domain;
+package com.griesba.inventory.service.domain;
 
 import lombok.*;
 import org.hibernate.annotations.Type;

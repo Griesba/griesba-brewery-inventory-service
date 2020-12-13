@@ -1,4 +1,4 @@
-package com.grieba.inventory.service.web.model;
+package com.griesba.inventory.service.web.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package com.grieba.inventory.service;
+package com.griesba.inventory.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

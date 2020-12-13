@@ -1,7 +1,7 @@
-package com.grieba.inventory.service.web.mapper;
+package com.griesba.inventory.service.web.mapper;
 
-import com.grieba.inventory.service.domain.BeerInventory;
-import com.grieba.inventory.service.web.model.BeerInventoryDto;
+import com.griesba.inventory.service.domain.BeerInventory;
+import com.griesba.inventory.service.web.model.BeerInventoryDto;
 import org.mapstruct.Mapper;
 
 @Mapper(uses = DateMapper.class)

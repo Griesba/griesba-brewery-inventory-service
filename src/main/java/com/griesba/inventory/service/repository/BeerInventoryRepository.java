@@ -1,6 +1,6 @@
-package com.grieba.inventory.service.repository;
+package com.griesba.inventory.service.repository;
 
-import com.grieba.inventory.service.domain.BeerInventory;
+import com.griesba.inventory.service.domain.BeerInventory;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.grieba.inventory.service.web.mapper;
+package com.griesba.inventory.service.web.mapper;
 
 import org.springframework.stereotype.Component;
 

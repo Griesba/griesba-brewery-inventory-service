@@ -1,4 +1,4 @@
-package com.grieba.inventory.service.config;
+package com.griesba.inventory.service.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
