@@ -2,7 +2,7 @@ package com.griesba.inventory.service.web.controller;
 
 import com.griesba.inventory.service.repository.BeerInventoryRepository;
 import com.griesba.inventory.service.web.mapper.BeerInventoryMapper;
-import com.griesba.inventory.service.web.model.BeerInventoryDto;
+import com.griesba.brewery.model.BeerInventoryDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
