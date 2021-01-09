@@ -14,32 +14,4 @@
   <name>griesba-brewery-inventory-service</name>
   <description>griesba brewery inventory service</description>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.jsonschema2pojo</groupId>
-        <artifactId>jsonschema2pojo-maven-plugin</artifactId>
-        <version>1.0.2</version>
-        <configuration>
-          <sourceDirectory>${basedir}/src/main/resources/schema</sourceDirectory>
-          <outputDirectory>src/main/java</outputDirectory>
-          <targetPackage>com.griesba.brewery.model</targetPackage>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-            <configuration>
-              <generateBuilders>true</generateBuilders>
-              <useInnerClassBuilders>true</useInnerClassBuilders>
-              <includeToString>false</includeToString>
-              <includeHashcodeAndEquals>false</includeHashcodeAndEquals>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
-
 </project>
