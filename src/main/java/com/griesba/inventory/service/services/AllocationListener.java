@@ -19,13 +19,14 @@ public class AllocationListener {
 
     @JmsListener(destination = JmsConfig.ALLOCATE_ORDER_QUEUE)
     public void listen(AllocateOrderRequest request) {
+
         AllocationOrderResponse.AllocationOrderResponseBuilder responseBuilder = new AllocationOrderResponse.AllocationOrderResponseBuilder();
         BeerOrderDto beerOrderDto = request.getBeerOrderDto();
-        log.info("Received allocation request for beer order id {}", beerOrderDto.getId());
-
-        responseBuilder.withBeerOrderDto(beerOrderDto);
-
         try {
+            log.info("Received AllocationOrderRequest {}", new ObjectMapper().writeValueAsString(request));
+
+            responseBuilder.withBeerOrderDto(beerOrderDto);
+
             boolean succeeded = allocationService.allocateOrder(beerOrderDto);
 
             if (succeeded){
@@ -36,12 +37,14 @@ public class AllocationListener {
 
             responseBuilder.withAllocationError(false);
 
-            log.error("Inventory allocation succeeded for {}",  beerOrderDto.getId());
+
         }catch (Exception e){
             log.error("Inventory allocation failed for {}: {}",beerOrderDto.getId(), e.getMessage());
             responseBuilder.withAllocationError(true);
         }
 
-        jmsTemplate.convertAndSend(JmsConfig.ALLOCATE_ORDER_RESPONSE_QUEUE, responseBuilder.build());
+        AllocationOrderResponse response = responseBuilder.build();
+
+        jmsTemplate.convertAndSend(JmsConfig.ALLOCATE_ORDER_RESPONSE_QUEUE, response);
     }
 }

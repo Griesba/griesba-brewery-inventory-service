@@ -27,7 +27,7 @@ public class AllocationServiceImpl implements AllocationService {
 
         beerOrderDto.getBeerOrderLines().forEach(beerOrderLineDto -> {
             int orderQuantity = beerOrderLineDto.getOrderQuantity() != null ? beerOrderLineDto.getOrderQuantity() : 0;
-            int quantityAllocated = beerOrderLineDto.getQuantityAllocated() != null ? beerOrderLineDto.getQuantityAllocated() : 0;
+            int quantityAllocated = beerOrderLineDto.getAllocatedQuantity() != null ? beerOrderLineDto.getAllocatedQuantity() : 0;
             if (orderQuantity - quantityAllocated > 0) {
                 allocateBeerOrderLine(beerOrderLineDto);
             }
@@ -52,17 +52,17 @@ public class AllocationServiceImpl implements AllocationService {
         beerInventories.forEach(beerInventory -> {
             int inventory = (beerInventory.getQuantityOnHand() == null) ? 0 : beerInventory.getQuantityOnHand();
             int orderQty = (beerOrderLine.getOrderQuantity() == null) ? 0 : beerOrderLine.getOrderQuantity();
-            int allocatedQty = (beerOrderLine.getQuantityAllocated() == null) ? 0 : beerOrderLine.getQuantityAllocated();
+            int allocatedQty = (beerOrderLine.getAllocatedQuantity() == null) ? 0 : beerOrderLine.getAllocatedQuantity();
             int qtyToAllocate = orderQty - allocatedQty;
 
             if (inventory >= qtyToAllocate) {// full allocation
                 inventory = inventory - qtyToAllocate;
-                beerOrderLine.setQuantityAllocated(orderQty);
+                beerOrderLine.setAllocatedQuantity(orderQty);
                 beerInventory.setQuantityOnHand(inventory);
 
                 beerInventoryRepository.save(beerInventory);
             } else if (inventory > 0){
-                beerOrderLine.setQuantityAllocated(allocatedQty + inventory);
+                beerOrderLine.setAllocatedQuantity(allocatedQty + inventory);
                 beerInventory.setQuantityOnHand(0);
             }
 
