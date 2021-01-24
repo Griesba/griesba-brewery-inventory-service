@@ -14,4 +14,12 @@
   <name>griesba-brewery-inventory-service</name>
   <description>griesba brewery inventory service</description>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+      <version>2.2.5.RELEASE</version>
+    </dependency>
+  </dependencies>
+
 </project>
